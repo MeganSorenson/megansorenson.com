@@ -1,32 +1,35 @@
-# NextJS - Typescript - MDX - Blog
+# NextJS - Typescript - MDX - Tailwind CSS
 
-A Next.js starter for your next blog or personal site. Built with:
+My personal blog.
+Built with:
 
-- [Typescript](https://www.typescriptlang.org/)
-- Write posts with [MDX](https://mdxjs.com/)
-- Style with [Tailwind CSS](https://tailwindcss.com/)
-- Linting with [ESLint](https://eslint.org/)
-- Formatting with [Prettier](https://prettier.io/)
-- Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
-- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+-   [Typescript](https://www.typescriptlang.org/)
+-   Write posts with [MDX](https://mdxjs.com/)
+-   Style with [Tailwind CSS](https://tailwindcss.com/)
+-   Linting with [ESLint](https://eslint.org/)
+-   Formatting with [Prettier](https://prettier.io/)
+-   Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
 
-This Starter is **heavily** inspired by [Lee Robinson](https://github.com/leerob/leerob.io) and [Anson Lichtfuss](https://github.com/ansonlichtfuss/website).
+This is **heavily** inspired by [Lee Robinson](https://github.com/leerob/leerob.io) and [Anson Lichtfuss](https://github.com/ansonlichtfuss/website).
 
-👀 [View the Live Demo](https://nextjs-typescript-mdx-blog.vercel.app/)
+## Notes:
 
-## Getting Started
+-   When using useTheme() to get the theme for a component, if the rendering depends on the theme, watch out for [THIS!](https://github.com/pacocoursey/next-themes#usetheme)
 
-```bash
-git clone https://github.com/ChangoMan/nextjs-typescript-mdx-blog.git
-cd nextjs-typescript-mdx-blog
-
-yarn install
-# or
-npm install
-
-yarn dev
-# or
-npm run dev
+```
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => setMounted(true), []);
+    if (!mounted) {
+        return null;
+    }
 ```
 
-Your new site will be up at http://localhost:3000/
+-   I moved to keeping page specific components in the pages folder, look [here](https://github.com/vercel/next.js/issues/8454#issuecomment-560432659) to find out what settings im using. This means that all valid paths in the /pages folder need to have the .page.tsx or .api.ts extensions. Everything else is not a valid path.
+
+## TODO:
+
+-   [] Add utterances comments
+-   [] improve hamburger menu pop out
+-   [] improve semester component in gpaCalculator
+-   [x] make projects page cards show more information about project and have links to code, demo, writeup ect with image and
+        longer blurb about what the project is.
